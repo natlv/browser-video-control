@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Tempo — Video Speed</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><img src="../icons/icon32.png" alt="" width="28" height="28"><span>tempo<span class="brand-dot">.</span></span></div>
+    <span class="tagline">YOUR PACE.</span>
+  </header>
+  <main>
+    <div class="site-line"><span class="site-dot" aria-hidden="true"></span><span id="site">Connecting…</span></div>
+    <section class="speed-panel" aria-labelledby="speed-title">
+      <h1 id="speed-title">Playback speed</h1>
+      <output id="speed-display" aria-live="polite">1<span>×</span></output>
+      <div class="speed-adjust">
+        <button id="decrease" class="step" type="button" aria-label="Decrease speed by 0.1">−</button>
+        <div class="number-wrap"><label class="sr-only" for="speed-number">Exact playback speed</label><input id="speed-number" type="number" min="0.5" max="5" step="any" inputmode="decimal" value="1" aria-describedby="input-error"><span>×</span></div>
+        <button id="increase" class="step" type="button" aria-label="Increase speed by 0.1">+</button>
+      </div>
+      <p id="input-error" class="input-error" role="alert" hidden></p>
+      <label class="sr-only" for="speed-slider">Playback speed in increments of 0.1</label>
+      <input id="speed-slider" type="range" min="0.5" max="5" step="0.1" value="1">
+      <div class="range-labels"><span>0.5×</span><span>5×</span></div>
+      <div class="presets" aria-label="Speed presets">
+        <button type="button" data-speed="1" aria-pressed="true">1×</button>
+        <button type="button" data-speed="1.25" aria-pressed="false">1.25×</button>
+        <button type="button" data-speed="1.5" aria-pressed="false">1.5×</button>
+        <button type="button" data-speed="2" aria-pressed="false">2×</button>
+        <button type="button" data-speed="3" aria-pressed="false">3×</button>
+        <button type="button" data-speed="4" aria-pressed="false">4×</button>
+        <button type="button" data-speed="5" aria-pressed="false">5×</button>
+      </div>
+      <button id="reset" class="reset" type="button">↺ <span>Reset to 1×</span></button>
+    </section>
+    <section class="preferences" aria-label="Speed preferences">
+      <div class="mode" role="group" aria-label="Preference scope"><button id="mode-global" type="button" aria-pressed="true">Global</button><button id="mode-site" type="button" aria-pressed="false">Per website</button></div>
+      <label class="remember"><input id="remember" type="checkbox"><span>Remember this website</span></label>
+      <p id="scope-description">One saved speed, everywhere.</p>
+      <div id="default-row" class="default-row" hidden><label for="default-speed">Default for other websites</label><div class="small-number"><input id="default-speed" type="number" min="0.5" max="5" step="any" value="1"><span>×</span></div></div>
+    </section>
+    <section class="status" aria-label="Player status"><span id="status-dot" class="status-dot" aria-hidden="true"></span><p id="status" aria-live="polite">Looking for videos…</p></section>
+    <details id="settings"><summary>Shortcuts & settings</summary><div class="settings-content">
+      <div id="shortcuts"></div>
+      <button id="configure-shortcuts" class="text-button" type="button">Customize keyboard shortcuts ↗</button>
+      <label class="indicator-setting"><input id="indicator" type="checkbox" checked><span>Show speed badge after shortcuts</span></label>
+      <button id="forget-sites" class="text-button secondary" type="button">Clear saved website preferences</button>
+    </div></details>
+  </main>
+  <footer><span>Local preferences. No tracking.</span><span id="saved">Saved</span></footer>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

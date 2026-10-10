@@ -1,0 +1,8 @@
+{
+  "name": "tempo-video-speed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test tests/*.test.js", "check": "node tools/check.mjs", "package": "python3 tools/package.py" },
+  "engines": { "node": ">=20" }
+}
